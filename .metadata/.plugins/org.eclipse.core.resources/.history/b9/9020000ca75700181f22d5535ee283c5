@@ -1,0 +1,36 @@
+package entry.input;
+
+import java.util.Properties;
+
+public class CredentialPropetyHandler {
+	
+	String connectionString;
+	String Schema;
+	String username;
+	String password;
+	/**
+	 * @param connectionString
+	 * @param schema
+	 * @param username
+	 * @param password
+	 */
+	public CredentialPropetyHandler(String connectionString, String schema, String username, String password) {
+		super();
+		this.connectionString = connectionString;
+		Schema = schema;
+		this.username = username;
+		this.password = password;
+	}
+	
+	
+	public boolean CredentialPropertyAdder(){
+		
+		Properties prop = new Properties();
+		InputStream in = getClass().getResourceAsStream("credentials.properties");
+		prop.load(in);
+		
+	}
+	
+	
+
+}

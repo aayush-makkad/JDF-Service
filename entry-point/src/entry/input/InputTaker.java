@@ -4,20 +4,34 @@ import java.util.ArrayList;
 
 import java.util.Scanner;
 
-public class InputTaker {
+public class InputTaker extends CredentialPropetyHandler {
 	
-	 static String connectionString;
+	 public InputTaker(String connectionString, String schema, String username, String password) {
+		super(connectionString, schema, username, password);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+	static String connectionString;
 	  static String schemaName;
 	  static String userName;
 	  static String password;
 	  static String tableName;
+	static  ArrayList<ColumnMetaData> columnMetaData = new ArrayList<ColumnMetaData>();
 	
 	
 	
-	
+	public static ArrayList<ColumnMetaData> getColumnMetaData() {
+		return columnMetaData;
+	}
+
+
+
 	public static void main(String args[]){
+			// stores column(s) data for the specific table
 		
-		 ArrayList<ColumnMetaData> columnMetaData = new ArrayList<ColumnMetaData>();
 		 
 		 Scanner sc = new Scanner(System.in);
 		 System.out.println("Enter connection string");
@@ -28,7 +42,7 @@ public class InputTaker {
 		 userName = sc.nextLine();
 		 System.out.println("Enter password");
 		 password = sc.nextLine();
-		 
+		 	new InputTaker(connectionString,schemaName,userName,password);
 		 boolean flag = true;
 		 String col;
 		 String colDataType;
@@ -66,38 +80,8 @@ public class InputTaker {
 		 
 		sc.close(); 
 		
+		
 	}
 
 }
 
- class ColumnMetaData{
-	
-	String name;
-	String dataType;
-	boolean isIdentity;
-	ColumnMetaData(String cname,String dtype,boolean primary){
-		
-		this.name = cname;
-		this.dataType = dtype;
-		this.isIdentity = primary;
-		
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getDataType() {
-		return dataType;
-	}
-	public void setDataType(String dataType) {
-		this.dataType = dataType;
-	}
-	public boolean isIdentity() {
-		return isIdentity;
-	}
-	public void setIdentity(boolean isIdentity) {
-		this.isIdentity = isIdentity;
-	}
-}
