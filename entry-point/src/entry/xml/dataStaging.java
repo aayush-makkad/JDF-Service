@@ -7,6 +7,12 @@ import entry.input.*;
 public class dataStaging {
 
 	static HashMap<String,String> CredentialsFromProperties = new HashMap<String,String>();
+	public static HashMap<String, String> getCredentialsFromProperties() {
+		return CredentialsFromProperties;
+	}
+	public static ArrayList<ColumnMetaData> getColumnData() {
+		return ColumnData;
+	}
 	static ArrayList<ColumnMetaData> ColumnData = new ArrayList<ColumnMetaData>();
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -15,6 +21,8 @@ public class dataStaging {
 		
 		CredentialsFromProperties = CredentialPropetyHandler.CredentialPropertyLoader();
 		ColumnData = InputTaker.getColumnMetaData();
+		
+		xmlGeneration.createXML();
 		
 		
 	}

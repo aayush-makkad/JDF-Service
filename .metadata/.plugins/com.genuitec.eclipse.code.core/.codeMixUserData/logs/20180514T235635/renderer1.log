@@ -212,3 +212,36 @@
     at EditorPart.doHideEditor (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:216321:20)
     at EditorPart.doShowEditor (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:216134:22)
     at EditorPart.doOpenEditor (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:216108:31)
+[2018-05-15 01:36:20.397] [renderer1] [error] Cannot read property 'fsPath' of null: TypeError: Cannot read property 'fsPath' of null
+    at file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:233248:37
+    at Emitter.fire (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:13119:38)
+    at EditorPart.openEditor (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:216068:35)
+    at EditorPart.doCloseActiveEditor (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:216279:22)
+    at EditorPart.doCloseEditor (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:216263:22)
+    at file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:216256:23
+    at _Base.Class.derive._creator.CompletePromise_then [as then] (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:11775:49)
+    at EditorPart.closeEditor (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:216251:116)
+    at WorkbenchEditorService.doCloseEditor (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:173051:36)
+    at WorkbenchEditorService.closeEditor (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:173048:25)
+[2018-05-15 01:36:24.507] [renderer1] [error] Cannot read property 'scheme' of null: TypeError: Cannot read property 'scheme' of null
+    at processModel_1 (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:235086:64)
+    at file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:235179:25
+    at Emitter.fire (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:13119:38)
+    at CodeEditor.CommonCodeEditor.setModel (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:75141:36)
+    at file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:208722:32
+    at _Base.Class.derive._creator.CompletePromise_then [as then] (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:11775:49)
+    at file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:208702:44
+    at CompletePromise_ctor.CompletePromise_then [as then] (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:11775:49)
+    at TextFileEditor.setInput (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:208701:73)
+    at SideBySidePreferencesWidget.updateInput (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:191271:27)
+[2018-05-15 01:36:27.276] [renderer1] [error] Cannot read property 'scheme' of null: TypeError: Cannot read property 'scheme' of null
+    at processModel_1 (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:235086:64)
+    at file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:235182:25
+    at Array.forEach (native)
+    at ViperService.subscribeToEditorsEventsIfNeeded (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:235073:21)
+    at file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:233272:32
+    at ThrottledEmitter.Emitter.fire (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:13119:38)
+    at ThrottledEmitter.fire (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:14966:42)
+    at file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:216211:45
+    at _Base.Class.derive._creator.CompletePromise_then [as then] (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:11775:49)
+    at EditorPart.doSetInput (file:///home/aayush/.codemix/engine/resources/app/out/vs/workbench/workbench.main.js:216195:52)

@@ -1,4 +1,5 @@
 package entry.input;
+import entry.xml.*;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,6 +27,7 @@ public class CredentialPropetyHandler {
 		CredentialPropetyHandler.username = username;
 		CredentialPropetyHandler.password = password;
 		CredentialPropertyAdder();
+		dataStaging.main(null);
 	}
 	
 	

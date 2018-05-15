@@ -42,7 +42,7 @@ public class InputTaker extends CredentialPropetyHandler {
 		 userName = sc.nextLine();
 		 System.out.println("Enter password");
 		 password = sc.nextLine();
-		 	new InputTaker(connectionString,schemaName,userName,password);
+		 	
 		 boolean flag = true;
 		 String col;
 		 String colDataType;
@@ -77,7 +77,7 @@ public class InputTaker extends CredentialPropetyHandler {
 			 
 		 }
 		 
-		 
+		 new InputTaker(connectionString,schemaName,userName,password);
 		sc.close(); 
 		
 		
