@@ -28,9 +28,9 @@ public class xmlGeneration {
 	
 	
 	
-	static dataStaging ds = new dataStaging();
-	static HashMap<String,String> param = ds.getCredentialsFromProperties();
-	static ArrayList<ColumnMetaData> columnData = ds.getColumnData();
+//	static dataStaging ds = new dataStaging();
+	static HashMap<String,String> param = dataStaging.getCredentialsFromProperties();
+	static ArrayList<ColumnMetaData> columnData = dataStaging.getColumnData();
 	
 	
 	public static void main(String args[]){
@@ -81,7 +81,7 @@ public class xmlGeneration {
 		        
 		        // global param ends here
 		        
-		        Iterator it = columnData.iterator();
+		        Iterator<ColumnMetaData> it = columnData.iterator();
 		        String ColName;
 		        String DataType;
 		        boolean prime;

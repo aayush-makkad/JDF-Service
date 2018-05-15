@@ -1,0 +1,5 @@
+package framework.core.jdbc;
+
+public class jdbcCore {
+
+}

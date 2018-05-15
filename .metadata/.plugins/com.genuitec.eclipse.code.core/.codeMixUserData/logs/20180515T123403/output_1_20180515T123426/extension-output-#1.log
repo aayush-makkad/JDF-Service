@@ -16,3 +16,6 @@ git for-each-ref --format %(refname) %(objectname) --sort -committerdate
 git remote --verbose
 git check-ignore -z --stdin
 git show :entry-point/credentials.properties
+git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+

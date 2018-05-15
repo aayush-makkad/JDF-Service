@@ -2,6 +2,7 @@ package entry.input;
 
 public class ColumnMetaData {
 
+
 	String name;
 	public String getName() {
 		return name;
@@ -12,6 +13,15 @@ public class ColumnMetaData {
 	public boolean isIdentity() {
 		return isIdentity;
 	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setDataType(String dataType) {
+		this.dataType = dataType;
+	}
+	public void setIdentity(boolean isIdentity) {
+		this.isIdentity = isIdentity;
+	}
 	String dataType;
 	boolean isIdentity;
 	ColumnMetaData(String cname,String dtype,boolean primary){
@@ -19,6 +29,10 @@ public class ColumnMetaData {
 		this.name = cname;
 		this.dataType = dtype;
 		this.isIdentity = primary;
+		
+	}
+	
+	 public ColumnMetaData(){
 		
 	}
 	

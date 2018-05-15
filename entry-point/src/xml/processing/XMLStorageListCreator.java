@@ -1,0 +1,60 @@
+/**
+ * 
+ */
+package xml.processing;
+
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Properties;
+
+/**
+ * @author aayush
+ *
+ */
+public class XMLStorageListCreator {
+	
+	/**
+	 * @param Contains all the data required for table creation including connection
+	 * string,schema name,username,password,column name,data type of column and if it is
+	 * primary or not
+	 *
+	 * 
+	 */
+	
+	public static ArrayList<XMLDataStorageClass> finalData = new ArrayList<XMLDataStorageClass>();
+	
+	public static ArrayList<XMLDataStorageClass> getFinalData() {
+		return finalData;
+	}
+
+	public static void StoredArrayListCreator(String cname,String dtype,boolean prime){
+		
+		XMLDataStorageClass xmldsc = new XMLDataStorageClass();
+		xmldsc.setColumnName(cname);
+		xmldsc.setDataType(dtype);
+		xmldsc.setPrime(prime);
+		
+		Properties prop = new Properties();
+		try {
+			prop.load(new FileInputStream("credentials.properties"));
+			xmldsc.setConnectionString(prop.getProperty("ConnectionString"));
+			xmldsc.setSchema(prop.getProperty("Schema"));
+			xmldsc.setUsername(prop.getProperty("Username"));
+			xmldsc.setPassword(prop.getProperty("Password"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		finalData.add(xmldsc);
+		
+	}
+	
+
+}
