@@ -52,7 +52,7 @@ public class InputTaker extends CredentialPropetyHandler {
 		 boolean primaryFlag = false;
 		 StringBuffer sb = new StringBuffer();
 		 while(flag){
-			 
+			 sb.setLength(0);
 			 System.out.println("Enter Column name");
 			 col = sc.nextLine();
 			 System.out.println("Enter data type for "+col);
@@ -62,7 +62,7 @@ public class InputTaker extends CredentialPropetyHandler {
 				 sb.append(colDataType+" ");
 				 System.out.println("Size?");
 				 colDataType = sc.nextLine();
-				 sb.append(colDataType);
+				 sb.append("("+colDataType+")");
 				 
 			 }
 			 System.out.println("Is it a primary key? If a primary key already exists, it will not be set");

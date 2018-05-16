@@ -44,8 +44,11 @@ public class XMLdataStaging {
 				System.out.println(cmd.isIdentity());
 				
 				XMLStorageListCreator.StoredArrayListCreator(cmd.getName(),cmd.getDataType(), cmd.isIdentity());
-				jdbcCore.coreProcess();
+				
 			}
+			
+			jdbcCore jdbccore = new jdbcCore();
+			jdbccore.coreProcess();
 			
 			
 		}
