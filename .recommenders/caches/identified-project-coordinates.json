@@ -1,1 +1,1 @@
-[[{"location":"/home/aayush/Framework-1.0/entry-point","type":"PROJECT","hints":{"PROJECT_NAME":"entry-point"}},"ABSENT"],[{"location":"/usr/lib/jvm/java-8-openjdk-amd64","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"]]
+[[{"location":"/home/aayush/Framework-1.0/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.jar","type":"JAR","hints":{}},"com.mysql.jdbc:com.mysql.jdbc:5.1.46"],[{"location":"/usr/lib/jvm/java-8-openjdk-amd64","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"]]
