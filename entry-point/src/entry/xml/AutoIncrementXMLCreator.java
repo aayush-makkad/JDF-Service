@@ -1,9 +1,10 @@
 package entry.xml;
 
 import java.io.File;
-
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.HashMap;
-
+import java.util.Properties;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -166,7 +167,12 @@ public class AutoIncrementXMLCreator {
 			        Attr attr2 = doc.createAttribute("Name");
 			        attr2.setValue(tablename);
 			        schema.setAttributeNode(attr2);
-			        
+			        // have to put it in credentials.properties as table name is picked up by core and parser from there
+			        Properties prop = new Properties();
+			        InputStream input = new FileInputStream("credentials.properties");
+			        prop.load(input);
+			        prop.setProperty("Schema", tablename);
+			        input.close();
 			        
 			        Element user = doc.createElement("username");
 			        rootElement.appendChild(user);

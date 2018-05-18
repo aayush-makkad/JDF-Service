@@ -62,10 +62,14 @@ public class XMLdataStaging {
 
 	private static ColumnMetaData getMetaData(Node node) {
 		// TODO Auto-generated method stub
+//		Element element1 = (Element) node;
+//        System.out.println(element1.getAttribute("Name"));
 		
 		ColumnMetaData cmd = new ColumnMetaData();
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
+			
             Element element = (Element) node;
+            //System.out.println(element.getAttribute("Schema"));
             cmd.setName(getTagValue("Column-Name",element));
             cmd.setDataType(getTagValue("Column-Data-Type",element));
             cmd.setIdentity(getTagValue("Is-Primary-Key",element).equalsIgnoreCase("Y")?true:false);
