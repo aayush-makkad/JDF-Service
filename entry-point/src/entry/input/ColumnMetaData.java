@@ -23,12 +23,20 @@ public class ColumnMetaData {
 		this.isIdentity = isIdentity;
 	}
 	String dataType;
+	String defaultvalue;
+	public String getDefaultvalue() {
+		return defaultvalue;
+	}
+	public void setDefaultvalue(String defaultvalue) {
+		this.defaultvalue = defaultvalue;
+	}
 	boolean isIdentity;
-	ColumnMetaData(String cname,String dtype,boolean primary){
+	ColumnMetaData(String cname,String dtype,boolean primary,String def){
 		
 		this.name = cname;
 		this.dataType = dtype;
 		this.isIdentity = primary;
+		this.defaultvalue = def;
 		
 	}
 	

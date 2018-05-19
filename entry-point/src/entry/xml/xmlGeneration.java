@@ -85,6 +85,7 @@ public class xmlGeneration {
 		        String ColName;
 		        String DataType;
 		        boolean prime;
+		        String defaultVal;
 		        
 		        while(it.hasNext()){
 		        	
@@ -92,6 +93,7 @@ public class xmlGeneration {
 		        	ColName = cmd.getName();
 		        	DataType = cmd.getDataType();
 		        	prime = cmd.isIdentity();
+		        	defaultVal = cmd.getDefaultvalue();
 		        	String PrimeUsableType;
 		        	if(prime == true){
 		        		PrimeUsableType = "Y";
@@ -124,6 +126,13 @@ public class xmlGeneration {
 			        //name.setAttributeNode(attrType);
 			        primary.appendChild(doc.createTextNode(PrimeUsableType));
 			        column.appendChild(primary);
+			        
+			        Element defaultValue = doc.createElement("Default");
+			        //Attr attrType = doc.createAttribute("Name");
+			        //attrType.setValue(ColName);
+			        //name.setAttributeNode(attrType);
+			        defaultValue.appendChild(doc.createTextNode(defaultVal));
+			        column.appendChild(defaultValue);
 			        
 			        
 		        	

@@ -50,6 +50,8 @@ public class InputTaker extends CredentialPropetyHandler {
 		 String choice;
 		 boolean primary;
 		 boolean primaryFlag = false;
+		 String def ="";
+		 String temp;
 		 StringBuffer sb = new StringBuffer();
 		 while(flag){
 			 sb.setLength(0);
@@ -76,9 +78,18 @@ public class InputTaker extends CredentialPropetyHandler {
 			 	else{
 			 		primary = false;
 			 	}
+			 	System.out.println("Enter if it is a NON NULL column or supply a default value or enter @ if no constraints required  ");
+			 	temp = sc.nextLine();
+			 	if(!temp.equals("@")){
+			 		def = temp;
+			 	}
+			 	else
+			 		def = "";
+			 	
+			 	
 			 // preparing list
 			 	
-			 	columnMetaData.add(new ColumnMetaData(col,sb.toString(),primary));
+			 	columnMetaData.add(new ColumnMetaData(col,sb.toString(),primary,def));
 			 	
 			 System.out.println("Enter more columns?");
 			 choice = sc.nextLine();

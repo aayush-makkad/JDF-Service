@@ -1,2 +1,5 @@
-/mysql-connector-java-5.1.46
-/.metadata
+*.jar
+/.metadata/
+/RemoteSystemsTempFiles/
+/mysql-connector-java-5.1.46/
+/bin/
