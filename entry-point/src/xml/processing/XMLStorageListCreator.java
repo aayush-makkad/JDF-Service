@@ -29,6 +29,10 @@ public class XMLStorageListCreator {
 	public static ArrayList<XMLDataStorageClass> getFinalData() {
 		return finalData;
 	}
+	
+	public static void main(String args[]){
+		StoredArrayListCreator("what","true",true);
+	}
 
 	public static void StoredArrayListCreator(String cname,String dtype,boolean prime){
 		
@@ -40,7 +44,12 @@ public class XMLStorageListCreator {
 		Properties prop = new Properties();
 		try {
 			prop.load(new FileInputStream("credentials.properties"));
-			xmldsc.setConnectionString(prop.getProperty("ConnectionString"));
+			String connectionString = prop.getProperty("ConnectionString");
+			String replaceWhat = "\\";
+			String replaceTo = "";
+			//connectionString.replaceAll(replaceWhat, replaceTo);
+			connectionString.replace(replaceWhat, replaceTo);
+			xmldsc.setConnectionString(connectionString);
 			xmldsc.setSchema(prop.getProperty("Schema"));
 			xmldsc.setUsername(prop.getProperty("Username"));
 			xmldsc.setPassword(prop.getProperty("Password"));

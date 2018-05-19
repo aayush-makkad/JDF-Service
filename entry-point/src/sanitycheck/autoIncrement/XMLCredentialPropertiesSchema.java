@@ -29,7 +29,7 @@ public class XMLCredentialPropertiesSchema {
 	static String tableNameXML = null;
 	static String tableNameProperties = null;
 	
-	public boolean SanityCheckRun(){
+	public static boolean SanityCheckRun(){
 		tableNameXML=TableNameFromXML();
 		tableNameProperties = TableNameFromProperties();
 	

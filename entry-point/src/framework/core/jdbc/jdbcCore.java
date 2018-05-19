@@ -73,6 +73,7 @@ public class jdbcCore {
 			st.executeUpdate(sqlbuff.toString());
 			
 			
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
