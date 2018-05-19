@@ -1,7 +1,0 @@
-[2018-05-14 22:31:12.349] [main] [info] update#ctor - updates are disabled
-[2018-05-14 22:31:38.553] [main] [error] [uncaught exception in main]: TypeError: Cannot read property 'forEach' of null
-[2018-05-14 22:31:38.553] [main] [error] TypeError: Cannot read property 'forEach' of null
-    at Timeout.flush [as _onTimeout] (/home/aayush/.codemix/engine/resources/app/out/vs/code/electron-main/main.js:8323:19)
-    at ontimeout (timers.js:386:14)
-    at tryOnTimeout (timers.js:250:5)
-    at Timer.listOnTimeout (timers.js:214:5)
