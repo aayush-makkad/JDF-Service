@@ -31,15 +31,16 @@ public class XMLStorageListCreator {
 	}
 	
 	public static void main(String args[]){
-		StoredArrayListCreator("what","true",true);
+//		StoredArrayListCreator("what","true",true);
 	}
 
-	public static void StoredArrayListCreator(String cname,String dtype,boolean prime){
+	public static void StoredArrayListCreator(String cname,String dtype,boolean prime,String def){
 		
 		XMLDataStorageClass xmldsc = new XMLDataStorageClass();
 		xmldsc.setColumnName(cname);
 		xmldsc.setDataType(dtype);
 		xmldsc.setPrime(prime);
+		xmldsc.setDefaultVal(def);
 		
 		Properties prop = new Properties();
 		try {

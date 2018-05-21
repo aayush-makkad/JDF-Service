@@ -53,20 +53,25 @@ public class InputTaker extends CredentialPropetyHandler {
 		 String def ="";
 		 String temp;
 		 StringBuffer sb = new StringBuffer();
+	
+		 
 		 while(flag){
+		
 			 sb.setLength(0);
 			 System.out.println("Enter Column name");
 			 col = sc.nextLine();
 			 System.out.println("Enter data type for "+col);
 			 colDataType = sc.nextLine();
 			 if(colDataType.equalsIgnoreCase("varchar") || colDataType.equalsIgnoreCase("nvarchar")){
-				 
+				
 				 sb.append(colDataType+" ");
 				 System.out.println("Size?");
 				 colDataType = sc.nextLine();
 				 sb.append("("+colDataType+")");
 				 
 			 }
+			 else
+				 sb.append(colDataType);
 			 System.out.println("Is it a primary key? If a primary key already exists, it will not be set");
 			 primarySetter = sc.nextLine();
 			 	if(primarySetter.equalsIgnoreCase("yes") && primaryFlag!=true){
@@ -84,7 +89,7 @@ public class InputTaker extends CredentialPropetyHandler {
 			 		def = temp;
 			 	}
 			 	else
-			 		def = "";
+			 		def = "NOT SET";
 			 	
 			 	
 			 // preparing list

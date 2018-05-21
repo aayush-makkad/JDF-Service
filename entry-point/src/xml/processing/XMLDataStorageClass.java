@@ -59,6 +59,13 @@ public class XMLDataStorageClass {
 	String columnName;
 	String dataType;
 	boolean prime; 
+	String defaultVal;
+	public String getDefaultVal() {
+		return defaultVal;
+	}
+	public void setDefaultVal(String defaultVal) {
+		this.defaultVal = defaultVal;
+	}
 	
 
 }

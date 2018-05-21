@@ -42,8 +42,9 @@ public class XMLdataStaging {
 				System.out.println(cmd.getName());
 				System.out.println(cmd.getDataType());
 				System.out.println(cmd.isIdentity());
+				System.out.println(cmd.getDefaultvalue());
 				
-				XMLStorageListCreator.StoredArrayListCreator(cmd.getName(),cmd.getDataType(), cmd.isIdentity());
+				XMLStorageListCreator.StoredArrayListCreator(cmd.getName(),cmd.getDataType(), cmd.isIdentity(),cmd.getDefaultvalue());
 				
 			}
 			
@@ -73,6 +74,7 @@ public class XMLdataStaging {
             cmd.setName(getTagValue("Column-Name",element));
             cmd.setDataType(getTagValue("Column-Data-Type",element));
             cmd.setIdentity(getTagValue("Is-Primary-Key",element).equalsIgnoreCase("Y")?true:false);
+            cmd.setDefaultvalue(getTagValue("Default",element));
 		}
 		
             
@@ -84,7 +86,7 @@ public class XMLdataStaging {
 	private static String getTagValue(String tag, Element element) {
         NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
         Node node = (Node) nodeList.item(0);
-        return node.getNodeValue();
+        return (node.getNodeValue()==null?"":node.getNodeValue());
     }
 
 }

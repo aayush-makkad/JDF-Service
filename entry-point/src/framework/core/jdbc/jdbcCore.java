@@ -27,14 +27,18 @@ public class jdbcCore {
 				sqlbuff.append("create table "+tableName+" ( ");
 		
 		try{
-			Class.forName("com.mysql.jdbc.Driver");
-			 con = (Connection) DriverManager.getConnection(data.get(0).getConnectionString(),data.get(0).getUsername(),data.get(0).getPassword());
+//			Class.forName("com.mysql.jdbc.Driver");
+//			 con = (Connection) DriverManager.getConnection(data.get(0).getConnectionString(),data.get(0).getUsername(),data.get(0).getPassword());
 			
 		
 			Iterator<XMLDataStorageClass> it = data.iterator();
 			String prime = null;
+			String def ;
+			
 			if(data.size()>1){
 			while(it.hasNext()){
+				def = "";
+				
 				prime = null;
 				xss = (XMLDataStorageClass) it.next();
 				if(xss.getPrime()){
@@ -43,15 +47,27 @@ public class jdbcCore {
 				else{
 					prime = "";
 				}
+				String dfVal="";
+				if(xss.getDefaultVal().equalsIgnoreCase("not null"))
+				{
+					dfVal = xss.getDefaultVal();
+				}
+				 if(!xss.getDefaultVal().equalsIgnoreCase("NOT SET") && xss.getDataType().equalsIgnoreCase("varchar"))
+				{
+					dfVal = "DEFAULT '"+xss.getDefaultVal()+"'";
+				}
+				 if((!xss.getDefaultVal().equalsIgnoreCase("NOT SET")) && xss.getDataType().equalsIgnoreCase("int")){
+					dfVal = "DEFAULT "+xss.getDefaultVal();
+				}
 				
 				if(!it.hasNext()){
 					//last iteration
 					
-					sqlbuff.append(xss.getColumnName()+" "+xss.getDataType()+" "+prime+")" );
+					sqlbuff.append(xss.getColumnName()+" "+xss.getDataType()+" "+prime+" "+dfVal+" )" );
 					
 				}else
 				{
-					sqlbuff.append(xss.getColumnName()+" "+xss.getDataType()+" "+prime+" , ");
+					sqlbuff.append(xss.getColumnName()+" "+xss.getDataType()+" "+prime+" "+dfVal+" , ");
 				}
 			}
 				 
@@ -66,11 +82,25 @@ public class jdbcCore {
 				else{
 					primeOne = "";
 				}
-				sqlbuff.append(data.get(0).getColumnName()+" "+data.get(0).getDataType()+" "+primeOne+") ");
+				String dfVal="";
+				if(data.get(0).getDefaultVal().equalsIgnoreCase("not null"))
+				{
+					dfVal = data.get(0).getDefaultVal();
+				}
+				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("") && data.get(0).getDataType().equalsIgnoreCase("varchar"))
+				{
+					dfVal = "DEFAULT '"+data.get(0).getDefaultVal()+"'";
+				}
+				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("") && data.get(0).getDataType().equalsIgnoreCase("int")){
+					dfVal = "DEFAULT "+data.get(0).getDefaultVal();
+				}
+				sqlbuff.append(data.get(0).getColumnName()+" "+data.get(0).getDataType()+" "+primeOne+" "+dfVal+") ");
 			}
 			
-			Statement st = (Statement) con.createStatement();
-			st.executeUpdate(sqlbuff.toString());
+			
+			
+//			Statement st = (Statement) con.createStatement();
+//			st.executeUpdate(sqlbuff.toString());
 			
 			
 			
