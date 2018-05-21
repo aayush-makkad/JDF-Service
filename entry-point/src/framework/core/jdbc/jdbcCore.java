@@ -27,14 +27,14 @@ public class jdbcCore {
 				sqlbuff.append("create table "+tableName+" ( ");
 		
 		try{
-//			Class.forName("com.mysql.jdbc.Driver");
-//			 con = (Connection) DriverManager.getConnection(data.get(0).getConnectionString(),data.get(0).getUsername(),data.get(0).getPassword());
+			Class.forName("com.mysql.jdbc.Driver");
+			 con = (Connection) DriverManager.getConnection(data.get(0).getConnectionString(),data.get(0).getUsername(),data.get(0).getPassword());
 			
 		
 			Iterator<XMLDataStorageClass> it = data.iterator();
 			String prime = null;
 			String def ;
-			
+			String dfVal="";
 			if(data.size()>1){
 			while(it.hasNext()){
 				def = "";
@@ -47,31 +47,65 @@ public class jdbcCore {
 				else{
 					prime = "";
 				}
-				String dfVal="";
-				if(xss.getDefaultVal().equalsIgnoreCase("not null"))
-				{
-					dfVal = xss.getDefaultVal();
-				}
-				 if(!xss.getDefaultVal().equalsIgnoreCase("NOT SET") && xss.getDataType().equalsIgnoreCase("varchar"))
-				{
-					dfVal = "DEFAULT '"+xss.getDefaultVal()+"'";
-				}
-				 if((!xss.getDefaultVal().equalsIgnoreCase("NOT SET")) && xss.getDataType().equalsIgnoreCase("int")){
-					dfVal = "DEFAULT "+xss.getDefaultVal();
-				}
+				 dfVal="";
+				 String XMLDefVal = xss.getDefaultVal().trim();
+				 boolean NotSetFlag = false;
+				 
+				 if(xss.getDefaultVal().trim().equalsIgnoreCase("not null".trim()))
+					{
+						dfVal = xss.getDefaultVal();
+					}
+				 
+				 else{
+				 
+				 if(XMLDefVal.equalsIgnoreCase("NOT SET"))
+				 {
+					 dfVal="";
+					 NotSetFlag = true;
+				 }
+				 else
+				 {
+					 
+					 
+					 
+					 if(xss.getDataType().startsWith("varchar"))
+						 dfVal = "DEFAULT '"+xss.getDefaultVal()+"'";
+					
+					 if(xss.getDataType().equalsIgnoreCase("int"))
+							 dfVal = "DEFAULT "+xss.getDefaultVal();
+						 
+					 
+				 }
 				
-				if(!it.hasNext()){
-					//last iteration
-					
-					sqlbuff.append(xss.getColumnName()+" "+xss.getDataType()+" "+prime+" "+dfVal+" )" );
-					
-				}else
-				{
-					sqlbuff.append(xss.getColumnName()+" "+xss.getDataType()+" "+prime+" "+dfVal+" , ");
-				}
+				 }
+				 boolean InvertFlag = !NotSetFlag;
+					 
+					 
+						 
+						 
+						 
+						 
+						 
+					 
+					 
+					 
+				 
+				 
+				 if(!it.hasNext()){
+						//last iteration
+						
+						sqlbuff.append(xss.getColumnName()+" "+xss.getDataType()+" "+prime+" "+dfVal+" )" );
+						
+					}else
+					{
+						sqlbuff.append(xss.getColumnName()+" "+xss.getDataType()+" "+prime+" "+dfVal+" , ");
+					}
+				
+				
+			}
 			}
 				 
-			}
+			
 			else
 			{
 				String primeOne = null;
@@ -82,12 +116,12 @@ public class jdbcCore {
 				else{
 					primeOne = "";
 				}
-				String dfVal="";
+				 dfVal="";
 				if(data.get(0).getDefaultVal().equalsIgnoreCase("not null"))
 				{
 					dfVal = data.get(0).getDefaultVal();
 				}
-				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("") && data.get(0).getDataType().equalsIgnoreCase("varchar"))
+				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("") && data.get(0).getDataType().startsWith("varchar"))
 				{
 					dfVal = "DEFAULT '"+data.get(0).getDefaultVal()+"'";
 				}
@@ -99,8 +133,8 @@ public class jdbcCore {
 			
 			
 			
-//			Statement st = (Statement) con.createStatement();
-//			st.executeUpdate(sqlbuff.toString());
+			Statement st = (Statement) con.createStatement();
+			st.executeUpdate(sqlbuff.toString());
 			
 			
 			
