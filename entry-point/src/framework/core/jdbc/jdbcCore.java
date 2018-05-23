@@ -122,11 +122,11 @@ public class jdbcCore {
 				{
 					dfVal = data.get(0).getDefaultVal();
 				}
-				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("") && DataTypeArgumentChecker.DefaultTextOrNumerical(data.get(0).getDataType()).startsWith("comma"))
+				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("NOT SET") && DataTypeArgumentChecker.DefaultTextOrNumerical(data.get(0).getDataType()).startsWith("comma"))
 				{
 					dfVal = "DEFAULT '"+data.get(0).getDefaultVal()+"'";
 				}
-				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("") && DataTypeArgumentChecker.DefaultTextOrNumerical(data.get(0).getDataType()).startsWith("no")){
+				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("NOT SET") && DataTypeArgumentChecker.DefaultTextOrNumerical(data.get(0).getDataType()).startsWith("no")){
 					dfVal = "DEFAULT "+data.get(0).getDefaultVal();
 				}
 				sqlbuff.append(data.get(0).getColumnName()+" "+data.get(0).getDataType()+" "+primeOne+" "+dfVal+") ");
