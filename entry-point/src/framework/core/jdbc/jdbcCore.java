@@ -7,6 +7,7 @@ import java.util.Iterator;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
+import entry.input.DataTypeArgumentChecker;
 import xml.processing.*;
 
 public class jdbcCore {
@@ -33,11 +34,11 @@ public class jdbcCore {
 		
 			Iterator<XMLDataStorageClass> it = data.iterator();
 			String prime = null;
-			String def ;
+			
 			String dfVal="";
 			if(data.size()>1){
 			while(it.hasNext()){
-				def = "";
+				
 				
 				prime = null;
 				xss = (XMLDataStorageClass) it.next();
@@ -49,7 +50,7 @@ public class jdbcCore {
 				}
 				 dfVal="";
 				 String XMLDefVal = xss.getDefaultVal().trim();
-				 boolean NotSetFlag = false;
+			
 				 
 				 if(xss.getDefaultVal().trim().equalsIgnoreCase("not null".trim()))
 					{
@@ -61,24 +62,24 @@ public class jdbcCore {
 				 if(XMLDefVal.equalsIgnoreCase("NOT SET"))
 				 {
 					 dfVal="";
-					 NotSetFlag = true;
+					 
 				 }
 				 else
 				 {
 					 
 					 
 					 
-					 if(xss.getDataType().startsWith("varchar"))
+					 if(DataTypeArgumentChecker.DefaultTextOrNumerical(xss.getDataType()).startsWith("comma"))
 						 dfVal = "DEFAULT '"+xss.getDefaultVal()+"'";
 					
-					 if(xss.getDataType().equalsIgnoreCase("int"))
+					 if(DataTypeArgumentChecker.DefaultTextOrNumerical(xss.getDataType()).startsWith("no"))
 							 dfVal = "DEFAULT "+xss.getDefaultVal();
 						 
 					 
 				 }
 				
 				 }
-				 boolean InvertFlag = !NotSetFlag;
+				 
 					 
 					 
 						 
@@ -121,11 +122,11 @@ public class jdbcCore {
 				{
 					dfVal = data.get(0).getDefaultVal();
 				}
-				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("") && data.get(0).getDataType().startsWith("varchar"))
+				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("") && DataTypeArgumentChecker.DefaultTextOrNumerical(data.get(0).getDataType()).startsWith("comma"))
 				{
 					dfVal = "DEFAULT '"+data.get(0).getDefaultVal()+"'";
 				}
-				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("") && data.get(0).getDataType().equalsIgnoreCase("int")){
+				else if(!data.get(0).getDefaultVal().equalsIgnoreCase("") && DataTypeArgumentChecker.DefaultTextOrNumerical(data.get(0).getDataType()).startsWith("no")){
 					dfVal = "DEFAULT "+data.get(0).getDefaultVal();
 				}
 				sqlbuff.append(data.get(0).getColumnName()+" "+data.get(0).getDataType()+" "+primeOne+" "+dfVal+") ");
