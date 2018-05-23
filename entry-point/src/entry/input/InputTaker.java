@@ -62,16 +62,39 @@ public class InputTaker extends CredentialPropetyHandler {
 			 col = sc.nextLine();
 			 System.out.println("Enter data type for "+col);
 			 colDataType = sc.nextLine();
-			 if(colDataType.equalsIgnoreCase("varchar") || colDataType.equalsIgnoreCase("nvarchar")){
-				
+//			 if(colDataType.equalsIgnoreCase("varchar") || colDataType.equalsIgnoreCase("nvarchar")){
+//				
+//				 sb.append(colDataType+" ");
+//				 System.out.println("Size?");
+//				 colDataType = sc.nextLine();
+//				 sb.append("("+colDataType+")");
+//				 
+//			 }
+//			 else
+//				
+			 int argsReq = DataTypeArgumentChecker.NumberOfArguments(colDataType);
+			 
+			 if(argsReq==1){
+				 sb.append(colDataType);
+			 }
+			 else if(argsReq == 1){
 				 sb.append(colDataType+" ");
 				 System.out.println("Size?");
 				 colDataType = sc.nextLine();
 				 sb.append("("+colDataType+")");
+			 }
+			 else if(argsReq == 2){
+				 
+				 sb.append(colDataType+" ");
+				 System.out.println("First Argument?");
+				 colDataType = sc.nextLine();
+				 sb.append("("+colDataType+",");
+				 System.out.println("Second Argument?");
+				 colDataType = sc.nextLine();
+				 sb.append(colDataType+")");
 				 
 			 }
-			 else
-				 sb.append(colDataType);
+			 
 			 System.out.println("Is it a primary key? If a primary key already exists, it will not be set");
 			 primarySetter = sc.nextLine();
 			 	if(primarySetter.equalsIgnoreCase("yes") && primaryFlag!=true){
