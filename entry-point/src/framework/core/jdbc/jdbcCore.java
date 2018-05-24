@@ -2,6 +2,7 @@ package framework.core.jdbc;
 
 import java.sql.DriverManager;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import com.mysql.jdbc.Connection;
@@ -13,10 +14,21 @@ import xml.processing.*;
 public class jdbcCore {
 	
 	private static ArrayList<XMLDataStorageClass> data;
+	public static ArrayList<XMLDataStorageClass> getData() {
+		return data;
+	}
+
+	public static HashMap<String, String> getJavaMappedColumns() {
+		return JavaMappedColumns;
+	}
+
+	public static HashMap<String,String> JavaMappedColumns;
 	
 	public jdbcCore(){
 	
 	 data = XMLStorageListCreator.getFinalData();
+	 
+	 
 	}
 	
 	public boolean coreProcess(){
@@ -145,8 +157,44 @@ public class jdbcCore {
 		
 		
 		System.out.println(sqlbuff);
+		JavaMappedColumns = HashMapCreationProcess();
 		return true;
 		
 	}
+	
+	
+	public HashMap<String,String> HashMapCreationProcess(){
+		
+		HashMap<String,String> hs = new HashMap<String,String>();
+		Iterator it = data.iterator();
+		XMLDataStorageClass xss = new XMLDataStorageClass();
+		while(it.hasNext()){
+			
+			xss = (XMLDataStorageClass)it.next();
+			
+			hs.put(xss.getColumnName(), JavaMappedDataType(xss.getDataType()));
+			
+		}
+		return hs;
+		
+		
+		
+	}
+
+	private String JavaMappedDataType(String dataType) {
+		// TODO Auto-generated method stub
+		dataType = dataType.toLowerCase();
+		if(dataType.startsWith("int"))
+			return "int";
+		if(dataType.startsWith("varchar"))
+			return "String";
+		else 
+			return "invalid"; 
+		
+		
+		
+	}
+	
+	
 
 }

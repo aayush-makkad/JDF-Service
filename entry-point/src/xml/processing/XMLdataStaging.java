@@ -1,5 +1,6 @@
 package xml.processing;
 import framework.core.jdbc.*;
+import mappedclass.engine.MappingEngine;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -50,6 +51,7 @@ public class XMLdataStaging {
 			
 			jdbcCore jdbccore = new jdbcCore();
 			jdbccore.coreProcess();
+			MappingEngine me = new MappingEngine();
 			
 			
 		}

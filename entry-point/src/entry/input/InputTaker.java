@@ -74,7 +74,7 @@ public class InputTaker extends CredentialPropetyHandler {
 //				
 			 int argsReq = DataTypeArgumentChecker.NumberOfArguments(colDataType);
 			 
-			 if(argsReq==1){
+			 if(argsReq==0){
 				 sb.append(colDataType);
 			 }
 			 else if(argsReq == 1){
