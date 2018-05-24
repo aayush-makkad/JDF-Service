@@ -2,6 +2,7 @@
  * 
  */
 package entry.xml;
+import xml.processing.*;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -147,7 +148,7 @@ public class xmlGeneration {
 		        
 		        StreamResult consoleResult = new StreamResult(System.out);
 		        transformer.transform(source, consoleResult);
-				
+				XMLdataStaging.main(null);
 				
 				}
 			catch(Exception e){
