@@ -51,6 +51,7 @@ public class XMLdataStaging {
 			
 			jdbcCore jdbccore = new jdbcCore();
 			jdbccore.coreProcess();
+			@SuppressWarnings("unused")
 			MappingEngine me = new MappingEngine();
 			
 			

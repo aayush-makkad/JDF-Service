@@ -166,6 +166,7 @@ public class jdbcCore {
 	public HashMap<String,String> HashMapCreationProcess(){
 		
 		HashMap<String,String> hs = new HashMap<String,String>();
+		@SuppressWarnings("rawtypes")
 		Iterator it = data.iterator();
 		XMLDataStorageClass xss = new XMLDataStorageClass();
 		while(it.hasNext()){
