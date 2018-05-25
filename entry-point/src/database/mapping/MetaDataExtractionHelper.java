@@ -18,11 +18,11 @@ public class MetaDataExtractionHelper {
 	static HashMap<String,HashMap<String,String>> outerMap = new HashMap<String,HashMap<String,String>>();
 	static HashMap<String,String> innerMap = new HashMap<String,String>();
 
-	public static void main(String args[]){
+	public MetaDataExtractionHelper(){
 		tableNames = extraction();
 		System.out.println("Columns starts here");
 		for(String s : tableNames){
-			
+	
 			outerMap.put(s,TableData(s));
 			
 		}
@@ -31,6 +31,12 @@ public class MetaDataExtractionHelper {
 	
 	
 	
+	public static HashMap<String, HashMap<String, String>> getOuterMap() {
+		return outerMap;
+	}
+
+
+
 	public static ArrayList<String> extraction(){
 		
 	ArrayList<String> _tables = new ArrayList<String>();
@@ -89,7 +95,10 @@ public class MetaDataExtractionHelper {
 			ResultSet rs = st.executeQuery(sql);
 			ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
 			int columnCount = rsmd.getColumnCount();
-			for(int i=1;i<columnCount-1;i++){
+			// System.out.println(columnCount);
+			for(int i=1;i<columnCount+1;i++){
+//				System.out.println(rsmd.getColumnName(i));
+//				System.out.println("///-> "+rsmd.getColumnType(i));
 				res.put(rsmd.getColumnName(i), rsmd.getColumnTypeName(i));
 			}
 			

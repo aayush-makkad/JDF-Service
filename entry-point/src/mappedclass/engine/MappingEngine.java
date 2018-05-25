@@ -23,11 +23,11 @@ public class MappingEngine {
 	 static String table_name = null;
 	 static String todaySource = null;
 	 static String todaySourceClass = null;
-	 String todayClass = null;
-	 String packageName = "tables";
+	 static String todayClass = null;
+	 static String packageName = "tables";
 	 static HashMap<String,String> colData = null;
-	 File dir;
-	 File dir2;
+	 static File dir;
+	 static File dir2;
 	
 	public MappingEngine(){
 		
@@ -65,7 +65,7 @@ public class MappingEngine {
 	
 	}
 	
-	 public void createIt() {
+	 public static void createIt() {
 		    try {
 		      FileWriter aWriter = new FileWriter(new File(dir,todaySource));
 		      aWriter.write("package "+packageName+";");
@@ -88,7 +88,7 @@ public class MappingEngine {
 			     aWriter.write(System.getProperty( "line.separator" ));
 			     aWriter.write("  }");
 			     aWriter.write(System.getProperty( "line.separator" ));
-			     aWriter.write("    public void set"+col_name+"("+data_type+" _"+col_name+")");
+			     aWriter.write("    public void set"+col_name+"("+data_type+" _"+col_name+"){");
 			     aWriter.write("      this."+col_name+" =  _"+col_name+";");
 			     aWriter.write("  }");
 			     aWriter.write(System.getProperty( "line.separator" ));
@@ -107,7 +107,7 @@ public class MappingEngine {
 		      e.printStackTrace();
 		      }
 		    }
-	 public void compileIt() {
+	 public static void compileIt() {
 		 
 		 
 		 try{
@@ -123,6 +123,23 @@ public class MappingEngine {
 			 e.printStackTrace();
 		 }
 		    }	
+	 
+	 
+	 public static void MappingSupportMethod(String tableName,HashMap<String,String> metaData){
+		 
+		 	todaySource = tableName + ".java";
+			todaySourceClass = tableName+".class";
+			String s = System.getProperty("user.dir");
+			dir = new File(s+"//src//tables");
+			dir2 = new File(s+"//bin//tables");
+			System.out.println("Writing java file in "+dir.toString());
+			todayClass = tableName;
+			colData = metaData;
+			createIt();
+		 
+		 
+	 }
+	 
 	
 
 }

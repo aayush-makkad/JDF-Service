@@ -182,7 +182,7 @@ public class jdbcCore {
 		
 	}
 
-	private String JavaMappedDataType(String dataType) {
+	public String JavaMappedDataType(String dataType) {
 		// TODO Auto-generated method stub
 		dataType = dataType.toLowerCase();
 		if(dataType.startsWith("int"))
