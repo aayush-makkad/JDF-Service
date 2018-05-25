@@ -78,17 +78,20 @@ public class MappingEngine {
 			    String col_name = entry.getKey();
 			     String data_type = entry.getValue();
 			     if(data_type.equalsIgnoreCase("String"))
-			    	 aWriter.write(data_type+" "+col_name+"= null;");
+			    	 aWriter.write("    "+data_type+" "+col_name+"= null;");
 			     else if(data_type.equalsIgnoreCase("int"))
-			    	 aWriter.write(data_type+" "+col_name+"= 0;");
+			    	 aWriter.write("    "+data_type+" "+col_name+"= 0;");
 			     aWriter.write(System.getProperty( "line.separator" ));
-			     aWriter.write("public "+data_type+" get"+col_name+"(){");
+			     aWriter.write("    public "+data_type+" get"+col_name+"(){");
 			     aWriter.write(System.getProperty( "line.separator" ));
-			     aWriter.write("return "+col_name+";");
+			     aWriter.write("       return "+col_name+";");
 			     aWriter.write(System.getProperty( "line.separator" ));
-			     aWriter.write("}");
+			     aWriter.write("  }");
 			     aWriter.write(System.getProperty( "line.separator" ));
-			     
+			     aWriter.write("    public void set"+col_name+"("+data_type+" _"+col_name+")");
+			     aWriter.write("      this."+col_name+" =  _"+col_name+";");
+			     aWriter.write("  }");
+			     aWriter.write(System.getProperty( "line.separator" ));
 			     
 			    
 			}
