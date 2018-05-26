@@ -3,9 +3,10 @@ package mappedclass.engine;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
-
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -15,6 +16,17 @@ import java.util.Properties;
 
 import javax.tools.JavaCompiler;
 import javax.tools.ToolProvider;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import java.io.File;
 
 import framework.core.jdbc.*;
 
@@ -67,6 +79,15 @@ public class MappingEngine {
 	
 	 public static void createIt() {
 		    try {
+		    	
+		    	//creating Property file for binding(Mapping)
+		    	
+		    	
+		    	OutputStream os = null;
+		    	Properties prop = new Properties();
+		    		
+		    	
+		    	// writing to java file 
 		      FileWriter aWriter = new FileWriter(new File(dir,todaySource));
 		      aWriter.write("package "+packageName+";");
 		      aWriter.write(System.getProperty( "line.separator" ));
@@ -76,6 +97,11 @@ public class MappingEngine {
 //		      aWriter.write(" System.out.println(\""+todayMillis+"\");");
 		  	for (Entry<String, String> entry : colData.entrySet()) {
 			    String col_name = entry.getKey();
+			    prop.setProperty(col_name, col_name);
+			    prop.setProperty("getters", "available");
+			  //  prop.setProperty(col_name, "get"+col_name);
+			    prop.setProperty("setters", "available");
+			    //prop.setProperty(col_name, "set"+col_name);
 			     String data_type = entry.getValue();
 			     if(data_type.equalsIgnoreCase("String"))
 			    	 aWriter.write("    "+data_type+" "+col_name+"= null;");
@@ -89,7 +115,9 @@ public class MappingEngine {
 			     aWriter.write("  }");
 			     aWriter.write(System.getProperty( "line.separator" ));
 			     aWriter.write("    public void set"+col_name+"("+data_type+" _"+col_name+"){");
+			     aWriter.write(System.getProperty( "line.separator" ));
 			     aWriter.write("      this."+col_name+" =  _"+col_name+";");
+			     aWriter.write(System.getProperty( "line.separator" ));
 			     aWriter.write("  }");
 			     aWriter.write(System.getProperty( "line.separator" ));
 			     
@@ -100,6 +128,14 @@ public class MappingEngine {
 		      aWriter.write(" }");
 		      aWriter.flush();      
 		      aWriter.close();
+		      try{
+		    	  os = new FileOutputStream(table_name+".properties");
+		    	  prop.store(os, "Bindings for "+table_name);
+		    	  os.close();
+		      }catch(Exception e)
+		      {
+		    	  e.printStackTrace();
+		      }
 		      System.out.println("now compiling the class file");
 		      compileIt();
 		      }
@@ -127,6 +163,7 @@ public class MappingEngine {
 	 
 	 public static void MappingSupportMethod(String tableName,HashMap<String,String> metaData){
 		 
+		 	table_name = tableName;
 		 	todaySource = tableName + ".java";
 			todaySourceClass = tableName+".class";
 			String s = System.getProperty("user.dir");
