@@ -98,9 +98,9 @@ public class MappingEngine {
 		  	for (Entry<String, String> entry : colData.entrySet()) {
 			    String col_name = entry.getKey();
 			    prop.setProperty(col_name, col_name);
-			    prop.setProperty("getters", "available");
+			   // prop.setProperty("getters", "available");
 			  //  prop.setProperty(col_name, "get"+col_name);
-			    prop.setProperty("setters", "available");
+			 //   prop.setProperty("setters", "available");
 			    //prop.setProperty(col_name, "set"+col_name);
 			     String data_type = entry.getValue();
 			     if(data_type.equalsIgnoreCase("String"))
