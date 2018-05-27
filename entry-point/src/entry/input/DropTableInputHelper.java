@@ -1,5 +1,7 @@
 package entry.input;
 import framework.core.jdbc.*;
+import database.mapping.*;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.Files;
@@ -35,7 +37,10 @@ public class DropTableInputHelper {
 		
 		 try
 	        {
+			 	String s = System.getProperty("user.dir");
+			 	File dir = new File(s+"//src//tables");	
 	            Files.deleteIfExists(Paths.get(_tableName+".properties"));
+	            Files.deleteIfExists(Paths.get(dir+"//"+_tableName+".java"));
 	        }
 	        catch(NoSuchFileException e)
 	        {
@@ -51,6 +56,7 @@ public class DropTableInputHelper {
 	        }
 	         
 	        System.out.println("Deletion successful.");
+	   
 	    }
 	
 	public static boolean DropTableJDBC(String _tableName){

@@ -8,6 +8,8 @@ import java.io.OutputStream;
 import java.util.Properties;
 import java.util.Scanner;
 
+import database.mapping.MetaDataExtractionHelper;
+
 public class EntryDropColumn {
 	
 	
@@ -31,7 +33,7 @@ public class EntryDropColumn {
 		if(res){
 			System.out.println("Column "+_colName+" dropped from database succcessully");
 			System.out.println("Deleting binding entry now");
-			PropertyBindingDeletionHandler(_tableName,_colName);
+			PropertyBindingDeletionHandler(_tableName);
 			System.out.println("Deleted Binding Entry");
 			
 		}
@@ -42,25 +44,10 @@ public class EntryDropColumn {
 		
 	}
 	
-	public static void PropertyBindingDeletionHandler(String _tableName,String _colName){
+	public static void PropertyBindingDeletionHandler(String _tableName){
 		
-		Properties prop = new Properties();
-		InputStream input = null;
-		OutputStream os = null;
-		try{
-		input = new FileInputStream(_tableName+".properties");
-		prop.load(input);
-		prop.remove(_colName);
-		os = new FileOutputStream(_tableName+".properties");
-		prop.store(os, "Bindings for "+_tableName);
-		input.close();
-		os.close();
-		
-		//input.close();
-		
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		DropTableInputHelper.BindingDeletion(_tableName);
+	    MetaDataExtractionHelper.SingleTableMappingReconstrunction(_tableName);
 		
 		
 	}

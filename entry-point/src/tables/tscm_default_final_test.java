@@ -7,13 +7,6 @@ public class tscm_default_final_test{
     public void settscm_kucka(String _tscm_kucka){
       this.tscm_kucka =  _tscm_kucka;
   }
-    int tscm_helix= 0;
-    public int gettscm_helix(){
-       return tscm_helix;
-  }
-    public void settscm_helix(int _tscm_helix){
-      this.tscm_helix =  _tscm_helix;
-  }
     int tscm_hyperReal= 0;
     public int gettscm_hyperReal(){
        return tscm_hyperReal;

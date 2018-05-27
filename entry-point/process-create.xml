@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Create-Table>
     <Connection-String String="jdbc:mysql://localhost:3306/mydb"/>
-    <Schema Name="class_engine_test"/>
+    <Schema Name="need_this_for_testing"/>
     <username Name="root"/>
     <Password Name="root"/>
     <Column>
-        <Column-Name>first</Column-Name>
+        <Column-Name>first_test</Column-Name>
         <Column-Data-Type>int</Column-Data-Type>
         <Is-Primary-Key>Y</Is-Primary-Key>
-        <Default>3</Default>
+        <Default>NOT NULL</Default>
     </Column>
     <Column>
-        <Column-Name>second</Column-Name>
-        <Column-Data-Type>varchar (1)</Column-Data-Type>
+        <Column-Name>try_two</Column-Name>
+        <Column-Data-Type>varchar (12)</Column-Data-Type>
         <Is-Primary-Key>N</Is-Primary-Key>
-        <Default>a</Default>
+        <Default>NOT SET</Default>
     </Column>
     <Column>
-        <Column-Name>third</Column-Name>
-        <Column-Data-Type>varchar (177)</Column-Data-Type>
+        <Column-Name>try_three</Column-Name>
+        <Column-Data-Type>int</Column-Data-Type>
+        <Is-Primary-Key>N</Is-Primary-Key>
+        <Default>NOT SET</Default>
+    </Column>
+    <Column>
+        <Column-Name>try_four</Column-Name>
+        <Column-Data-Type>int</Column-Data-Type>
         <Is-Primary-Key>N</Is-Primary-Key>
         <Default>NOT NULL</Default>
+    </Column>
+    <Column>
+        <Column-Name>try_five</Column-Name>
+        <Column-Data-Type>int</Column-Data-Type>
+        <Is-Primary-Key>N</Is-Primary-Key>
+        <Default>11</Default>
+    </Column>
+    <Column>
+        <Column-Name>try_six</Column-Name>
+        <Column-Data-Type>varchar (14)</Column-Data-Type>
+        <Is-Primary-Key>N</Is-Primary-Key>
+        <Default>yesno</Default>
     </Column>
 </Create-Table>

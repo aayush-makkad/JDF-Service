@@ -14,13 +14,6 @@ public class class_engine_test{
     public void settry_two(String _try_two){
       this.try_two =  _try_two;
   }
-    int try_four= 0;
-    public int gettry_four(){
-       return try_four;
-  }
-    public void settry_four(int _try_four){
-      this.try_four =  _try_four;
-  }
     int tryone= 0;
     public int gettryone(){
        return tryone;
