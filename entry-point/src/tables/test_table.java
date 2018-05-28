@@ -1,5 +1,5 @@
 package tables;
-public class need_this_for_testing{
+public class test_table{
     int try_three= 0;
     public int gettry_three(){
        return try_three;
