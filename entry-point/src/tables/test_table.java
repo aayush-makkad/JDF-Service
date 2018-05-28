@@ -1,5 +1,5 @@
 package tables;
-public class test_table{
+public class test_table implements Cloneable{
     int try_three= 0;
     public int gettry_three(){
        return try_three;
@@ -34,5 +34,8 @@ public class test_table{
   }
     public void setfirst_test(int _first_test){
       this.first_test =  _first_test;
-  }
+    }
+    public Object clone()throws CloneNotSupportedException{  
+    	return super.clone();  
+    	}
  }
