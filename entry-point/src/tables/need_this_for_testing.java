@@ -7,12 +7,19 @@ public class need_this_for_testing{
     public void settry_three(int _try_three){
       this.try_three =  _try_three;
   }
-    int try_five= 0;
-    public int gettry_five(){
-       return try_five;
+    int six_test= 0;
+    public int getsix_test(){
+       return six_test;
   }
-    public void settry_five(int _try_five){
-      this.try_five =  _try_five;
+    public void setsix_test(int _six_test){
+      this.six_test =  _six_test;
+  }
+    int five_test= 0;
+    public int getfive_test(){
+       return five_test;
+  }
+    public void setfive_test(int _five_test){
+      this.five_test =  _five_test;
   }
     String try_two= null;
     public String gettry_two(){
@@ -27,12 +34,5 @@ public class need_this_for_testing{
   }
     public void setfirst_test(int _first_test){
       this.first_test =  _first_test;
-  }
-    String try_six= null;
-    public String gettry_six(){
-       return try_six;
-  }
-    public void settry_six(String _try_six){
-      this.try_six =  _try_six;
   }
  }
