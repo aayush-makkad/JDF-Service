@@ -1,12 +1,11 @@
 package entry.input;
 import tables.*;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
+
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Properties;
+
 
 import com.mysql.jdbc.ResultSetMetaData;
 
@@ -78,7 +77,7 @@ public class SelectAllFromTable {
 			ar.add(rsmd.getColumnName(i));
 		}
 		
-		Class DesiredClass = null;
+		Class<?> DesiredClass = null;
 		StringBuffer sb = new StringBuffer();
 		
 		try{

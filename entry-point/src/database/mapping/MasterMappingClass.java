@@ -8,7 +8,7 @@ import mappedclass.engine.*;
 public class MasterMappingClass {
 	
 	public static void main(String args[]){
-		MasterMappingClass mpcc = new MasterMappingClass();
+		new MasterMappingClass();
 	}
 	
 	static HashMap<String,HashMap<String,String>> mainMap = new HashMap<String,HashMap<String,String>>();
@@ -16,7 +16,7 @@ public class MasterMappingClass {
 	String TableName = null;
 	public MasterMappingClass(){
 		
-	MetaDataExtractionHelper metaHelper = new MetaDataExtractionHelper();
+	new MetaDataExtractionHelper();
 	mainMap = MetaDataExtractionHelper.getOuterMap();
 	Iterator<Map.Entry<String, HashMap<String, String>>> parent = mainMap.entrySet().iterator();
 	while (parent.hasNext()) {
@@ -25,7 +25,8 @@ public class MasterMappingClass {
 	     TableName = parentPair.getKey();
 	    Iterator<Map.Entry<String, String>> child = (parentPair.getValue()).entrySet().iterator();
 	    while (child.hasNext()) {
-	        Map.Entry childPair = child.next();
+	        @SuppressWarnings("rawtypes")
+			Map.Entry childPair = child.next();
 	        System.out.println("Column :   " + childPair.getKey() + " Data type  :  " + childPair.getValue());
 	        ResultantMap.put(childPair.getKey().toString(), MappedJavaType(childPair.getValue().toString()));
 
@@ -50,7 +51,8 @@ public class MasterMappingClass {
 		     TableName = parentPair.getKey();
 		    Iterator<Map.Entry<String, String>> child = (parentPair.getValue()).entrySet().iterator();
 		    while (child.hasNext()) {
-		        Map.Entry childPair = child.next();
+		        @SuppressWarnings("rawtypes")
+				Map.Entry childPair = child.next();
 		        System.out.println("Column :   " + childPair.getKey() + " Data type  :  " + childPair.getValue());
 		        ResultantMap.put(childPair.getKey().toString(), MappedJavaType(childPair.getValue().toString()));
 

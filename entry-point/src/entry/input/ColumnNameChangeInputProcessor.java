@@ -15,6 +15,7 @@ public class ColumnNameChangeInputProcessor {
 		System.out.println("Enter new name for the column "+_oldName);
 		String _newName = sc.nextLine();
 		Processor(_tableName,_oldName,_newName);
+		sc.close();
 		
 	}
 	

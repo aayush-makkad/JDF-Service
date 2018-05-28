@@ -14,6 +14,7 @@ public class ChangeTableNameInputSupport {
 		System.out.println("Enter the new name of table");
 		String _oldName = sc.nextLine();
 		ChangeTableName(_tableName,_oldName);
+		sc.close();
 	}
 	
 	
