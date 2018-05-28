@@ -26,8 +26,12 @@ public class SelectAllFromTable {
 		
 		ArrayListSelectAllDynamicLinker("test_table");
 		for(Object o : ar){
-			System.out.println(o.getClass().getName());
 			
+
+			test_table te = test_table.class.cast(o);
+			
+			System.out.println(te.getfirst_test());
+			System.out.println(te.gettry_two());
 			
 		}
 		
