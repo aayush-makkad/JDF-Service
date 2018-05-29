@@ -18,13 +18,31 @@ public class SelectWhereHelper {
 	
 	public static void main(String args[]){
 		
+		//Select where equals
+		
 		ArrayList<Object> ar = SelectWhere("test_table","first_test","1");
 		
 		for(Object o : ar){
 			
 			test_table te = test_table.class.cast(o);
 			System.out.println(te.gettry_two());
+			
 			System.out.println(te.getfive_test());
+			
+			
+		}
+		
+		// select where not equals
+		
+		ArrayList<Object> ar2 = SelectWhereNot("test_table","first_test","1");
+		
+		for(Object o : ar2){
+			
+			test_table te = test_table.class.cast(o);
+			System.out.println(te.gettry_two());
+			
+			System.out.println(te.getfive_test());
+			
 			
 		}
 		
@@ -42,6 +60,8 @@ public class SelectWhereHelper {
 	public static ArrayList<Object> SelectWhere(String _tableName,String _colName,String EqualityCondition){
 		
 		ArrayList<Object> output = null;
+		
+	
 		
 		try{
 			
@@ -65,6 +85,17 @@ public class SelectWhereHelper {
 		}
 		
 		return output;
+		
+	}
+	
+	
+	
+	public static ArrayList<Object> SelectWhereNot(String _tableName,String _colName,String EqualityCondition){
+		
+		String newName = "NOT "+_colName;
+		ArrayList<Object> output = SelectWhere(_tableName,newName,EqualityCondition);
+		return output;
+				
 		
 	}
 	
