@@ -66,12 +66,18 @@ public class MasterMappingClass {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * <i>Takes as input the sql data type in string format and returns it's mapped java data type as string</i>
+	 * 
+	 * @param string
+	 * @return mapped java data type
+	 */
 	private static String MappedJavaType(String string) {
 		// TODO Auto-generated method stub
 		
-		String usableType = string.toLowerCase();
-		if(usableType.startsWith("int"))
+		String usableType = string.toLowerCase();  //converting to lower case as is not using equalsIgnorecase
+		if(usableType.startsWith("int"))				// use startsWith as sql data type contains size of data type too 
 			return "int";
 		if(usableType.startsWith("varchar"))
 			return "String";
