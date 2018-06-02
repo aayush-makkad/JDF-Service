@@ -88,15 +88,18 @@ public class MappingEngine {
 		  	for (Entry<String, String> entry : colData.entrySet()) {
 			    String col_name = entry.getKey();
 			    prop.setProperty(col_name, col_name);
+			    
 			   // prop.setProperty("getters", "available");
 			  //  prop.setProperty(col_name, "get"+col_name);
 			 //   prop.setProperty("setters", "available");
 			    //prop.setProperty(col_name, "set"+col_name);
 			     String data_type = entry.getValue();
+			     prop.setProperty("pm_type_"+col_name,data_type);
 			     if(data_type.equalsIgnoreCase("String"))
 			    	 aWriter.write("    "+data_type+" "+col_name+"= null;");
 			     else if(data_type.equalsIgnoreCase("int"))
 			    	 aWriter.write("    "+data_type+" "+col_name+"= 0;");
+			     aWriter.write("   boolean "+col_name+"_bool = false;");
 			     aWriter.write(System.getProperty( "line.separator" ));
 			     aWriter.write("    public "+data_type+" get"+col_name+"(){");
 			     aWriter.write(System.getProperty( "line.separator" ));
@@ -107,9 +110,18 @@ public class MappingEngine {
 			     aWriter.write("    public void set"+col_name+"("+data_type+" _"+col_name+"){");
 			     aWriter.write(System.getProperty( "line.separator" ));
 			     aWriter.write("      this."+col_name+" =  _"+col_name+";");
+			     aWriter.write("      this."+col_name+"_bool=true;");
 			     aWriter.write(System.getProperty( "line.separator" ));
 			     aWriter.write("  }");
 			     aWriter.write(System.getProperty( "line.separator" ));
+			     aWriter.write("    public boolean is"+col_name+"_bool()");
+			     aWriter.write("{");
+			     aWriter.write("return this."+col_name+"_bool;");
+			     aWriter.write("}");
+			     aWriter.write(System.getProperty( "line.separator" ));
+			     aWriter.write(System.getProperty( "line.separator" ));
+			     
+			     
 			     
 			    
 			}

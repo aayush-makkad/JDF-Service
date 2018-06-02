@@ -16,6 +16,7 @@ public class InsertIntoHelper {
 		test_table te = new test_table();
 		te.settry_three(6);
 		te.settry_two("hey");
+		te.setfive_test(7);
 	//	Object o = Object.class.cast(te);
 		ArrayList<Object> ar = new ArrayList<Object>();
 		ar.add(te);
