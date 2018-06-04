@@ -1,12 +1,12 @@
 package entry.input;
 
-import java.awt.RenderingHints.Key;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import framework.core.jdbc.InsertIntoJDBC;
 import tables.test_table;
 
 public class InsertIntoHelper {
@@ -14,16 +14,26 @@ public class InsertIntoHelper {
 	public static void main(String args[]){
 		
 		test_table te = new test_table();
-		te.settry_three(6);
+		//te.settry_three(6);
 		te.settry_two("hey");
-		te.setfive_test(7);
+		te.setfirst_test(161);
+		test_table te2 = new test_table();
+		te2.setfirst_test(198);
+		te2.setsix_test(0);
+		//te.setfive_test(7);
 	//	Object o = Object.class.cast(te);
 		ArrayList<Object> ar = new ArrayList<Object>();
 		ar.add(te);
+		ar.add(te2);
 		InsertionHelper("test_table",ar);
 	}
 	
-	
+	/**
+	 * 
+	 * 
+	 * @param _tableName
+	 * @param ArrayList<object>
+	 */
 	public static void InsertionHelper(String _tableName,ArrayList<Object> _object){
 		
 		// just for abstraction
@@ -102,6 +112,11 @@ public class InsertIntoHelper {
 	        	}
 	        	System.out.println("selection :"+columnsSelected.toString());
 	        	System.out.println("Values :"+ColumnValues.toString());
+	        	System.out.println("Now running the JDBC core process");
+	        	InsertIntoJDBC.mainProcess(_tableName,columnsSelected,ColumnValues);
+	        	System.out.println("Required entry inserted!");
+	        	
+	        	
 		}catch(Exception e){
 			e.printStackTrace();
 		}

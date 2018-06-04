@@ -13,17 +13,17 @@ import framework.core.jdbc.SelectAllJDBC;
 
 public class SelectAllFromTable {
 	
-	static ArrayList<Object> ar = new ArrayList<Object>();
-	public static void ArrayListSelectAllDynamicLinker(String _tableName){
+	
+	public static ArrayList<Object> ArrayListSelectAllDynamicLinker(String _tableName){
 		
 		
-		ar = JDBCProcessCaller(_tableName);
+		return JDBCProcessCaller(_tableName);
 		
 		
 	}
 	public static void main(String args[]){
-		
-		ArrayListSelectAllDynamicLinker("test_table");
+		 ArrayList<Object> ar = new ArrayList<Object>();
+		ar = ArrayListSelectAllDynamicLinker("test_table");
 		for(Object o : ar){
 			
 
