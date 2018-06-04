@@ -19,10 +19,16 @@ public class InputTaker extends CredentialPropetyHandler {
 	  static String userName;
 	  static String password;
 	  static String tableName;
-	static  ArrayList<ColumnMetaData> columnMetaData = new ArrayList<ColumnMetaData>();
+	public static  ArrayList<ColumnMetaData> columnMetaData = new ArrayList<ColumnMetaData>();
 	
 	
 	
+	public static void setColumnMetaData(ArrayList<ColumnMetaData> columnMetaData) {
+		InputTaker.columnMetaData = columnMetaData;
+	}
+
+
+
 	public static ArrayList<ColumnMetaData> getColumnMetaData() {
 		return columnMetaData;
 	}

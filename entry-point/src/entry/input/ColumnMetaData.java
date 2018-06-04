@@ -31,6 +31,14 @@ public class ColumnMetaData {
 		this.defaultvalue = defaultvalue;
 	}
 	boolean isIdentity;
+	
+	/**
+	 * 
+	 * @param cname
+	 * @param dtype
+	 * @param primary
+	 * @param def
+	 */
 	ColumnMetaData(String cname,String dtype,boolean primary,String def){
 		
 		this.name = cname;

@@ -27,7 +27,7 @@ public class CredentialPropetyHandler {
 		CredentialPropetyHandler.username = username;
 		CredentialPropetyHandler.password = password;
 		CredentialPropertyAdder();
-		dataStaging.main(null);
+		//dataStaging.main(null);
 	}
 	
 	
