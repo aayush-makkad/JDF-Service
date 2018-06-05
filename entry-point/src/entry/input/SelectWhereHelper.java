@@ -145,14 +145,14 @@ public static ArrayList<Object> ArrayListWrapperCreator(ResultSet _resultset){
 		try{
 		 DesiredClass = Class.forName("tables."+tableName);
 		 System.out.println("class loaded "+DesiredClass.toString());
-		 System.out.println("\n/n\n/n");
+		// System.out.println("\n/n\n/n");
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 		while(_resultset.next()){
 			
-			System.out.println("In loop of rs");
+			// System.out.println("In loop of rs");
 			Object o = DesiredClass.newInstance();
 			int j= 0;
 			for(String s : ar){

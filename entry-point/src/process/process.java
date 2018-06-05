@@ -108,5 +108,19 @@ public class process {
 	public static ArrayList<Object> SelectWhere(String _tableName,String _colName,String EqualityCondition){
 		return SelectWhereHelper.SelectWhere(_tableName, _colName, EqualityCondition);
 	}
+	
+	/**
+	 * Takes input as name of table,name of column and the value to which it should not be equal to
+	 * and returns and arraylist of objects
+	 * 
+	 * 
+	 * @param _tableName
+	 * @param _colName
+	 * @param _EqualityCondition
+	 * @return
+	 */
+	public static ArrayList<Object> SelectWhereNot(String _tableName,String _colName,String _EqualityCondition){
+		return SelectWhereHelper.SelectWhereNot(_tableName, _colName, _EqualityCondition);
+	}
 
 }

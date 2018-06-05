@@ -15,8 +15,8 @@ public class InsertIntoExample {
 		testProcess tp = new testProcess();
 		
 		// set values of variables(Columns)
-		tp.setcol_1(90);
-		tp.setcol_2(18);
+		tp.setcol_1(9009);
+		tp.setcol_2(19);
 		
 		//create ArrayList of objects
 		ArrayList<Object> tableData = new ArrayList<Object>();
