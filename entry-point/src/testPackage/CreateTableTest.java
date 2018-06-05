@@ -16,7 +16,7 @@ public class CreateTableTest {
 			
 			// Setting up Connection String,Table name,Username and Password
 			
-			process.UpdateCredentials("jdbc:mysql://localhost:3306/mydb","testProcess","root","root");
+			process.UpdateCredentials("jdbc:mysql://localhost:3306/mydb","testProcess_2","root","root");
 			
 			// Setting up table structure starts here
 			// col_1  ||  col_2

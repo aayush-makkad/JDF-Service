@@ -7,6 +7,8 @@ import entry.xml.dataStaging;
 import entry.input.InsertIntoHelper;
 import entry.input.SelectAllFromTable;
 import entry.input.SelectWhereHelper;
+import entry.input.ChangeTableNameInputSupport;
+import entry.input.ColumnNameChangeInputProcessor;
 
 public class process {
 	
@@ -121,6 +123,30 @@ public class process {
 	 */
 	public static ArrayList<Object> SelectWhereNot(String _tableName,String _colName,String _EqualityCondition){
 		return SelectWhereHelper.SelectWhereNot(_tableName, _colName, _EqualityCondition);
+	}
+	
+	/**
+	 * 
+	 * Takes as input the current name and the name to which you want to change to, as a string
+	 * 
+	 * @param _newName
+	 * @param _oldname
+	 */
+	public static void ChangeTableName(String _newName,String _oldname){
+		ChangeTableNameInputSupport.ChangeTableName(_oldname, _newName);
+	}
+	
+	
+	/**
+	 * 
+	 * Takes as input the name of table,current name of column and the name you want to change it to as string
+	 * 
+	 * @param _tableName
+	 * @param _oldName
+	 * @param _newName
+	 */
+	public static void ChangeColumnName(String _tableName,String _oldName,String _newName){
+		ColumnNameChangeInputProcessor.Processor(_tableName, _oldName, _newName);
 	}
 
 }
