@@ -1,6 +1,7 @@
 package testPackage;
 
 import tables.testProcess;
+import tables.test_table;
 
 import java.util.ArrayList;
 
@@ -15,17 +16,18 @@ public class SelectAllExample {
 		ArrayList<Object> _tableData = new ArrayList<Object>();
 		
 		//get the returned objects
-		_tableData = process.SelectAll("testProcess");
+		_tableData = process.SelectAll("test_table");
 		
 		
 		for(Object o : _tableData){
 			
 			// CAST EACH AND EVERY OBJECT TO IT'S MAPPED CLASS
-			testProcess tp = testProcess.class.cast(o);
+			test_table tp = test_table.class.cast(o);
 			
 			// Use getters to get the values
-			System.out.println("col_1 data : "+tp.getcol_1());
-			System.out.println("col_2 data : "+tp.getcol_2());
+			System.out.println("col_1 data : "+tp.getfirst_test());
+			System.out.println("col_2 data : "+tp.getfive_test());
+			System.out.println("col_2 data : "+tp.getsix_test());
 		}
 		
 		
