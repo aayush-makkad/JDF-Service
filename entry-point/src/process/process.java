@@ -9,6 +9,9 @@ import entry.input.SelectAllFromTable;
 import entry.input.SelectWhereHelper;
 import entry.input.ChangeTableNameInputSupport;
 import entry.input.ColumnNameChangeInputProcessor;
+import entry.input.DropTableInputHelper;
+import entry.input.EntryDropColumn;
+import database.mapping.MasterMappingClass;
 
 public class process {
 	
@@ -147,6 +150,50 @@ public class process {
 	 */
 	public static void ChangeColumnName(String _tableName,String _oldName,String _newName){
 		ColumnNameChangeInputProcessor.Processor(_tableName, _oldName, _newName);
+	}
+	
+	
+	
+	/**
+	 * 
+	 * Takes as input the name of table to be deleted in string format<br>
+	 * <b> Not only drops the table but also deletes all it's mappings on successful dropping of table</b>
+	 * 
+	 * @param _tableName
+	 */
+	public static void DropTable(String _tableName){
+		
+		if(DropTableInputHelper.DropTableJDBC(_tableName))
+			DropTableInputHelper.BindingDeletion(_tableName);
+		
+	}
+	
+	
+	/**
+	 * Takes as input the name of table and column in string format
+	 * <b> Not only drops the Column but also deletes all it's mappings on successful dropping</b>
+	 * 
+	 * 
+	 * 
+	 * @param _tableName
+	 * @param _colName
+	 */
+	public static void DropColumn(String _tableName,String _colName){
+		
+		EntryDropColumn.DropColumn(_tableName, _colName);
+	}
+	
+	
+	/**
+	 * Creates mapping of all the tables present in the database specified in the
+	 * <b> database-mapping-engine.properties file </b><br><br>
+	 * Creates new mappings so <b> make sure that mappings do not already exist as it will
+	 * create redundant classes and ambiguity</b>
+	 * 
+	 * 
+	 */
+	public static void CreateMappings(){
+		MasterMappingClass.main(null);
 	}
 
 }
