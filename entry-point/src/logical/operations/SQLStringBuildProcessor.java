@@ -86,8 +86,7 @@ public class SQLStringBuildProcessor {
 			Map.Entry<Integer, String> ent = itr.next();
 				
 			
-			_process.remove(ent.getValue());
-			_process.add(ent.getKey(), ent.getValue());
+			_process.set(ent.getKey(), ent.getValue());
 		}
 		return _process;
 	}
