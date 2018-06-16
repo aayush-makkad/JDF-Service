@@ -25,8 +25,8 @@ public class SelectAllExample {
 			test_table tp = test_table.class.cast(o);
 			
 			// Use getters to get the values
-			System.out.println("col_1 data : "+tp.getfirst_test());
-			System.out.println("col_2 data : "+tp.getfive_test());
+			//System.out.println("col_1 data : "+tp.getfirst_test());
+			//System.out.println("col_2 data : "+tp.getfive_test());
 			System.out.println("col_2 data : "+tp.getsix_test());
 		}
 		

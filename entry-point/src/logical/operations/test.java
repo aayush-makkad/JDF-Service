@@ -2,18 +2,24 @@ package logical.operations;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		SQLStringBuildProcessor.SelectFromBuild("test_table", "six_test");
-		SQLStringBuildProcessor.SelectWhereBuild("not first_test", "1");
+		SQLStringBuildProcessor.SelectFromBuild("test_table", "first_test");
+		//SQLStringBuildProcessor.SelectWhereBuild("not first_test", "1");
 		
-		SQLStringBuildProcessor.SelectANDBuild("not five_test", "3");
+		
+		ArrayList<Integer> _try = new ArrayList<Integer>();
+			_try.add(198);
+			_try.add(199);
+			_try.add(19889);
 	//	SQLStringBuildProcessor.SelectLike("col_2", "%a");
-		
+		SQLStringBuildProcessor.SelectIn("first_test",_try);
+		SQLStringBuildProcessor.SelectANDBuild("not first_test", "198");
 		System.out.println(SQLStringHolder.getmainString());
 		ResultSet rs = StringBuilderJDBCProcessor.mainProcess();
 		try {
