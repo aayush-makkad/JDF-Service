@@ -1,8 +1,7 @@
-# java-database-framework
+# java-database-framework-Service
 
 
-Working on developing a library to easen up the process for backend development for ava applications by handling jdbc and sql commands 
-on its own.
+Working on developing a Restful web service for java-database-framework to easen up the process for backend development for java applications by handling jdbc and sql commands on its own through requests from the internet.
 
 Just provide credentials, table and column identifiers and you are good to go . :)
 
