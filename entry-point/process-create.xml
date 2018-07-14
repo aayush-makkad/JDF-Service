@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Create-Table>
     <Connection-String String="jdbc:mysql://localhost:3306/mydb"/>
-    <Schema Name="testProcess_2"/>
+    <Schema Name="service"/>
     <username Name="root"/>
     <Password Name="root"/>
     <Column>
-        <Column-Name>col_1</Column-Name>
-        <Column-Data-Type>int</Column-Data-Type>
-        <Is-Primary-Key>Y</Is-Primary-Key>
-        <Default>5</Default>
-    </Column>
-    <Column>
-        <Column-Name>col_2</Column-Name>
+        <Column-Name>col_11</Column-Name>
         <Column-Data-Type>int</Column-Data-Type>
         <Is-Primary-Key>N</Is-Primary-Key>
-        <Default>5</Default>
+        <Default>2</Default>
     </Column>
 </Create-Table>
