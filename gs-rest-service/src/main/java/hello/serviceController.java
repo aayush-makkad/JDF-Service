@@ -3,9 +3,6 @@ package hello;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.concurrent.atomic.AtomicLong;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +18,7 @@ public class serviceController {
 	LinkedHashMap<String,Object> res = new LinkedHashMap<String,Object>();
 	ArrayList<Object> get = new ArrayList<Object>();
 	
-	@RequestMapping("/service")
+	@RequestMapping("/getall")
 	public HashMap<String,Object> _serice(@RequestParam(value="table", defaultValue="test_table") String tablename){
 		
 		
