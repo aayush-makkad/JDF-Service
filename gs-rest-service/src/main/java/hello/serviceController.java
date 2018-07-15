@@ -16,7 +16,7 @@ public class serviceController {
 	@RequestMapping("/service")
 	public ArrayList<Object> _serice(){
 		
-		return process.SelectAll("service");
+		return process.SelectAll("test_table");
 		
 	}
 	

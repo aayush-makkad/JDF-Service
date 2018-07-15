@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Create-Table>
+    <Connection-String String="jdbc:mysql://localhost:3306/mydb"/>
+    <Schema Name="testProcess"/>
+    <username Name="root"/>
+    <Password Name="root"/>
+    <Column>
+        <Column-Name>col_1</Column-Name>
+        <Verified>Y</Verified>
+        <Start-From>5</Start-From>
+    </Column>
+</Create-Table>

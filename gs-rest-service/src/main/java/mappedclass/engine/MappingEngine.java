@@ -51,8 +51,8 @@ public class MappingEngine {
 	todaySource = table_name + ".java";
 	todaySourceClass = table_name+".class";
 	String s = System.getProperty("user.dir");
-	dir = new File(s+"//src//tables");
-	dir2 = new File(s+"//bin//tables");
+	dir = new File(s+"//src//main//java//tables");
+	dir2 = new File(s+"//target//classes//tables");
 	System.out.println("Writing java file in "+dir.toString());
 	todayClass = table_name;
 	createIt();
@@ -169,8 +169,8 @@ public class MappingEngine {
 		 	todaySource = tableName + ".java";
 			todaySourceClass = tableName+".class";
 			String s = System.getProperty("user.dir");
-			dir = new File(s+"//src//tables");
-			dir2 = new File(s+"//bin//tables");
+			dir = new File(s+"//src//main//java//tables");
+			dir2 = new File(s+"//target//classes//tables");
 			System.out.println("Writing java file in "+dir.toString());
 			todayClass = tableName;
 			colData = metaData;
