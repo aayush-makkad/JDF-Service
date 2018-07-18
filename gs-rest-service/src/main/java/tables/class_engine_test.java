@@ -1,4 +1,7 @@
 package tables;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
+
 public class class_engine_test{
     int try_three= 0;   boolean try_three_bool = false;
     public int gettry_three(){
@@ -7,6 +10,7 @@ public class class_engine_test{
     public void settry_three(int _try_three){
       this.try_three =  _try_three;      this.try_three_bool=true;
   }
+		@JsonIgnore
     public boolean istry_three_bool(){return this.try_three_bool;}
 
     String try_two= null;   boolean try_two_bool = false;
@@ -16,6 +20,9 @@ public class class_engine_test{
     public void settry_two(String _try_two){
       this.try_two =  _try_two;      this.try_two_bool=true;
   }
+    
+		@JsonIgnore
+		@JsonProperty(value="try_two_bool")
     public boolean istry_two_bool(){return this.try_two_bool;}
 
     int tryone= 0;   boolean tryone_bool = false;
@@ -25,6 +32,7 @@ public class class_engine_test{
     public void settryone(int _tryone){
       this.tryone =  _tryone;      this.tryone_bool=true;
   }
+		@JsonIgnore
     public boolean istryone_bool(){return this.tryone_bool;}
 
  }

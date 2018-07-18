@@ -81,6 +81,8 @@ public class MappingEngine {
 		      FileWriter aWriter = new FileWriter(new File(dir,todaySource));
 		      aWriter.write("package "+packageName+";");
 		      aWriter.write(System.getProperty( "line.separator" ));
+		      aWriter.write("import com.fasterxml.jackson.annotation.JsonIgnore;");
+		      aWriter.write(System.getProperty( "line.separator" ));
 		      aWriter.write("public class "+ todayClass + "{");
 		      aWriter.write(System.getProperty( "line.separator" ));
 //		      aWriter.write(" public void doit() {");
@@ -113,6 +115,8 @@ public class MappingEngine {
 			     aWriter.write("      this."+col_name+"_bool=true;");
 			     aWriter.write(System.getProperty( "line.separator" ));
 			     aWriter.write("  }");
+			     aWriter.write(System.getProperty( "line.separator" ));
+			     aWriter.write("		@JsonIgnore");
 			     aWriter.write(System.getProperty( "line.separator" ));
 			     aWriter.write("    public boolean is"+col_name+"_bool()");
 			     aWriter.write("{");
