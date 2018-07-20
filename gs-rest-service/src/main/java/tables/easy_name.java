@@ -1,6 +1,6 @@
 package tables;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-public class class_engine_test{
+public class easy_name{
     int try_three= 0;   boolean try_three_bool = false;
     public int gettry_three(){
        return try_three;
@@ -20,15 +20,5 @@ public class class_engine_test{
   }
 		@JsonIgnore
     public boolean ischange_col_bool(){return this.change_col_bool;}
-
-    int tryone= 0;   boolean tryone_bool = false;
-    public int gettryone(){
-       return tryone;
-  }
-    public void settryone(int _tryone){
-      this.tryone =  _tryone;      this.tryone_bool=true;
-  }
-		@JsonIgnore
-    public boolean istryone_bool(){return this.tryone_bool;}
 
  }

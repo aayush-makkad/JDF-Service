@@ -1,5 +1,7 @@
 package entry.input;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +15,7 @@ public class MappingPropertyHandler {
 	public static String userName;
 	public static String password;
 	
-	public MappingPropertyHandler(String connectionString, String schema, String username, String password) {
+	public MappingPropertyHandler(String connectionString, String schema, String username, String password) throws FileNotFoundException {
 		super();
 		MappingPropertyHandler.ConnectionString = connectionString;
 		MappingPropertyHandler.DataBaseName = schema;
@@ -24,10 +26,10 @@ public class MappingPropertyHandler {
 	}
 	
 	
-	public boolean CredentialPropertyAdder(){
+	public boolean CredentialPropertyAdder() throws FileNotFoundException{
 		
 		Properties prop = new Properties();
-		InputStream in = getClass().getResourceAsStream("database-mapping-engine.properties");
+		InputStream in = new FileInputStream("database-mapping-engine.properties");
 		try {
 			prop.load(in);
 		} catch (IOException e) {
